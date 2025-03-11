@@ -1,0 +1,54 @@
+.recommendation-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+  text-align: center;
+}
+
+.game-info h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.trailer iframe {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.story-summary {
+  font-size: 1em;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.add-to-library-btn, .next-btn {
+  background-color: #2f855a;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-library-btn:hover, .next-btn:hover {
+  background-color: #38a169;
+}
+
+.no-recommendations {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #777;
+}

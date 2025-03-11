@@ -1,0 +1,11 @@
+<div class="user-library-banner bg-black">
+  <!-- Hero Section -->
+  <div class="hero-banner" style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="profile-info">
+    <img class="profile-img" src="{{ user?.img }}" alt="Profile Picture" />
+    <h5 class="card-title mt-2 gamer-font">{{ user?.username }}</h5>
+  </div>
+
+  <input type="text" class="search-bar form-control w-25" placeholder="Search.." [(ngModel)]="searchQuery" />
+</div>
+</div>

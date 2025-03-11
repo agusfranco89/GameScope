@@ -1,0 +1,43 @@
+<header class=" height d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom border-primary bg-dark navbar">
+  <div class="col-md-3 mb-2 mb-md-0">
+    <a href="/public" class="d-inline-flex link-body-emphasis text-decoration-none">
+      <img src="https://i.imgur.com/gDo9QBt.png" alt="Descripción de la imagen" class="logo-image" width="55" height="55">
+    </a>
+  </div>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="#" class="nav-link px-2 ">Home</a></li>
+    <li><a routerLink="/videogames" class="nav-link px-2">Videogames</a></li>
+
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Top</a>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Weekly</a></li>
+        <li><a class="dropdown-item" href="#">Monthly</a></li>
+        <li><a class="dropdown-item" href="#">Historic</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#" class="nav-link px-2">Game of the week</a></li>
+
+    @if (authService.isSessionActive() && authService.isAdmin()){
+      <li><a routerLink="/addVideogame" class="nav-link px-2">Add Videogame</a></li>
+
+    }
+  </ul>
+
+  <div class="col-md-3 text-end logeo">
+
+
+
+    @if (authService.isSessionActive()){
+      <button (click)="onLogout()" class="btn btn-outline-danger me-2">Log out</button>
+    } @else {
+      <button  class="btn btn-outline-primary me-2" (click)="openLogin()"> Log in</button>
+      <button  class="btn btn-outline-primary me-2" (click)="openRegister()">Sign in</button>
+    }
+
+
+  </div>
+</header>

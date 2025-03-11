@@ -1,0 +1,31 @@
+<!-- Reviews Section -->
+<div class="reviews-section" *ngIf="videojuego?.reviews">
+  <h3>REVIEWS:</h3>
+
+
+  <div *ngIf="!reviewSeleccionada">
+    <div class="review" *ngFor="let review of videojuego?.reviews">
+      <h4 (click)="seleccionarReview(review)" style="cursor: pointer; color: #ffcc00;">
+        {{ review.titulo }}
+      </h4>
+      <p><strong>Review Score:</strong> {{ review.calificacionGlobal }}</p>
+      @if(review.comentarios?.length){
+        <p><strong>Summary:</strong> {{ review.comentarios }}</p>
+      }
+    </div>
+  </div>
+
+  <!-- Mostrar la reseña completa cuando una esté seleccionada -->
+  <div *ngIf="reviewSeleccionada" class="review-completa">
+    <h4>{{ reviewSeleccionada.titulo }}</h4>
+    <p><strong>Puntuación Gráficos:</strong> {{ reviewSeleccionada.puntuacionGraficos }}</p>
+    <p><strong>Comentario Gráficos:</strong> {{ reviewSeleccionada.comentarioGraficos }}</p>
+    <p><strong>Puntuación Jugabilidad:</strong> {{ reviewSeleccionada.puntuacionJugabilidad }}</p>
+    <p><strong>Comentario Jugabilidad:</strong> {{ reviewSeleccionada.comentarioJugabilidad }}</p>
+    <p><strong>Puntuación Precio/Calidad:</strong> {{ reviewSeleccionada.puntuacionPrecioCalidad }}</p>
+    <p><strong>Comentario Precio/Calidad:</strong> {{ reviewSeleccionada.comentarioPrecioCalidad }}</p>
+    <p><strong>Comentario General:</strong> {{ reviewSeleccionada.contenido }}</p>
+    <p class="fecha"><strong>Fecha:</strong> {{ reviewSeleccionada.fechaCreacion | date }}</p>
+    <button (click)="volverALista()">Volver a la lista de reseñas</button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.videogame-card {
+  display: flex;               /* Hace que el contenido sea flexible */
+  flex-direction: column;      /* Coloca los elementos en una columna */
+  width: 100%;                 /* Ocupar todo el ancho disponible */
+  max-width: none;             /* Quita la limitación de ancho */
+  margin: 10px auto;           /* Centra la tarjeta horizontalmente */
+  padding: 15px;               /* Espaciado interno */
+  box-sizing: border-box;      /* Incluye el padding en el tamaño total */
+}
+
+.galeria {
+  width: 100%;
+  height: auto;                /* Ajusta la altura automáticamente */
+  padding: 10px;               /* Opcional: espacio alrededor del contenido */
+}
+
+.img {
+  width: 100%;                 /* Ocupar todo el ancho disponible */
+  height: auto;                /* Ajusta la altura automáticamente */
+}
+
+.text {
+  padding-left: 3.5rem;
+  width: 100%;                 /* Ocupar todo el ancho */
+}
+
+.content {
+  width: 100%;                 /* Ocupar todo el ancho del contenedor */
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;             /* Permite que el contenido se ajuste al ancho */
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}

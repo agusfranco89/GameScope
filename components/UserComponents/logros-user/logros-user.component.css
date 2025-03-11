@@ -1,0 +1,31 @@
+.achievements-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+.achievement-item {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.achievement-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover .achievement-icon {
+  transform: scale(1.1);
+}
+
+.no-achievements {
+  color: #bbb;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}

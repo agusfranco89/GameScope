@@ -1,0 +1,28 @@
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+.logo-image {
+  margin-left: 1.5rem;
+}
+
+.logeo{
+  margin-right: 1rem;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+.height{
+  height: 4.5rem;
+}
+/*
+.nav-link { Cambia el texto a un color especifico fuera del azul
+  color: #ffffff;
+}
+*/

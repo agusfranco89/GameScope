@@ -1,0 +1,70 @@
+<section class="host body vh-100 bg-black text-white">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-black">
+        <div class="d-flex text-white justify-content-center align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+          <form style="width: 100%; max-width: 400px;" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesion</h3>
+
+            <!-- Email Address Field -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input
+                type="email"
+                id="form2Example18"
+                class="form-control form-control-lg"
+                formControlName="email"
+                required
+              />
+              <label class="form-label" for="form2Example18">Email</label>
+            </div>
+
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error-msj">
+              {{emailError()}}
+            </div>
+
+            <!-- Password Field -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input
+                type="password"
+                id="form2Example28"
+                class="form-control form-control-lg"
+                formControlName="password"
+                required
+              />
+              <label class="form-label" for="form2Example28">Password</label>
+            </div>
+
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-msj">
+              {{passwordError()}}
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="pt-1 mb-4">
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary me-2" type="submit" [disabled]="loginForm.invalid">Iniciar Sesion</button>
+            </div>
+
+<!--            &lt;!&ndash; Forgot Password Link &ndash;&gt;-->
+<!--            <p>¿Olvido la contraseña? <a href="#!" class="link-info">Recuperar</a></p>-->
+          </form>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="col-sm-6 px-0 d-none d-sm-block mt-0">
+        <img
+          src="https://img.freepik.com/free-vector/hand-drawn-retro-gaming-poster-design_23-2150852630.jpg?t=st=1731349937~exp=1731353537~hmac=0f9d3f506e0f049c89fec8c20000ae83cbe75556cc4512ee7837f93a71375149&w=740"
+          alt="Login image"
+          class="w-100 vh-100"
+          style="object-fit: cover; object-position: left;"
+        />
+      </div>
+
+      @if (errorMessage){
+              <div class="alert alert-danger mt-3" role="alert">
+                {{ errorMessage }}
+              </div>
+      }
+    </div>
+  </div>
+</section>

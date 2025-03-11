@@ -1,0 +1,120 @@
+<div class="register-container bg-black text-white d-flex justify-content-center align-items-center flex-column">
+  <h2 class="p-3 pb-0">{{ videogame?.title }}</h2>
+  <div class="form-container w-50">
+    <form class="bg-dark text-white " [formGroup]="reviewForm"(ngSubmit)="onSubmit()">
+        <!-- TITULO REVIEW -->
+         <h4>Review Title</h4>
+       <div class="form-grup">
+        <label for="titulo"></label>
+        <input
+        type="titulo"
+        id="titulo"
+        formControlName="titulo"
+        class="form-control"
+        placeholder="Title"
+        />
+        <div *ngIf="reviewForm.get('titulo')?.touched && reviewForm.get('titulo')?.invalid" class="error-msj">
+          {{ titleError }}
+        </div>
+        <small class="error" *ngIf="reviewForm.get('titulo')?.errors?.['minlength']">The title must be at least 10 characters long.</small>
+       </div>
+       <!-- CONTENIDO -->
+       <div class="form-grup">
+        <h4>General comments</h4>
+        <label for="contenido"></label>
+        <input
+        type="contenido"
+        id="contenido"
+        formControlName="contenido"
+        class="form-control"
+        placeholder="Write your comment..."
+        />
+        <div>
+          <small class="error" *ngIf="reviewForm.get('contenido')?.errors?.['minlength']">
+            Comment cannot be less than 50 Characters long
+            </small>
+          <small class="error" *ngIf="reviewForm.get('contenido')?.errors?.['maxlength']">
+            The comment cannot be longer than 500 characters.
+            </small>
+        </div>
+       </div>
+
+       <!-- CALIFICACION -->
+        <!-- Calificación con estrellas -->
+        <div>
+          <h4>Graphics</h4>
+
+          <!-- Calificación con estrellas para Gráficos -->
+          <p-rating
+            formControlName="puntuacionGraficos"
+            [stars]="5">
+          </p-rating>
+          <div>
+            <small class="error" *ngIf="reviewForm.get('puntuacionGraficos')?.errors?.['required']
+                                        && reviewForm.get('puntuacionGraficos')?.touched">
+              Giving a rating is required
+            </small>
+          </div>
+
+          <!-- Comentario para Gráficos -->
+          <textarea
+            formControlName="comentarioGraficos"
+            rows="3"
+            cols="58"
+            placeholder="Write your comment on the graphs...">
+          </textarea>
+        </div>
+
+        <!-- Jugabilidad -->
+        <div>
+          <h4>Gameplay</h4>
+
+          <!-- Calificación con estrellas para Jugabilidad -->
+          <p-rating
+            formControlName="puntuacionJugabilidad"
+            [stars]="5">
+          </p-rating>
+          <small class="error" *ngIf="reviewForm.get('puntuacionJugabilidad')?.errors?.['required']
+                                        && reviewForm.get('puntuacionJugabilidad')?.touched">
+            Giving a rating is required
+          </small>
+
+          <!-- Comentario para Jugabilidad -->
+          <textarea
+            formControlName="comentarioJugabilidad"
+            rows="3"
+            cols="58"
+            placeholder=" Write your comment about the gameplay...">
+          </textarea>
+        </div>
+
+        <!-- Relación Costo/Calidad -->
+        <div>
+          <h4> Cost/Quality Ratio</h4>
+
+          <!-- Calificación con estrellas para Relación Costo/Calidad -->
+          <p-rating
+            formControlName="puntuacionPrecioCalidad"
+            [stars]="5">
+          </p-rating>
+          <small class="error" *ngIf="reviewForm.get('puntuacionPrecioCalidad')?.errors?.['required']
+                                        && reviewForm.get('puntuacionPrecioCalidad')?.touched">
+            Giving a rating is required
+          </small>
+
+          <!-- Comentario para Relación Costo/Calidad -->
+          <textarea
+            formControlName="comentarioPrecioCalidad"
+            rows="3"
+            cols="58"
+            placeholder=" Write your comment about the cost/quality ratio...">
+          </textarea>
+        </div>
+        <!-- BOTON DE ENVIO -->
+         <div class="button-div pt-3">
+          <button type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid">Submit Review</button>
+        </div>
+
+    </form>
+  </div>
+</div>

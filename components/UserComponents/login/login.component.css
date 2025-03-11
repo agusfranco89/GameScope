@@ -1,0 +1,23 @@
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+  .h-custom-2 {
+    height: 100%;
+  }
+}
+
+.error-msj {
+  border: 1px solid #e74c3c; /* Color del borde */
+  background-color: #f8d7da; /* Fondo de alerta */
+  color: #721c24; /* Color del texto */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 4px; /* Bordes redondeados */
+  margin: 0.5rem; /* Espaciado superior para separar del input */
+  font-size: 0.9rem; /* Tamaño de la fuente */
+}

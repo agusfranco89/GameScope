@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center bg-black align-items-center mt-5">
+  <div class="card text-left bg-dark text-light body container" style="width: 60%;">
+    <div class="row g-0 border-bottom border-primary">
+      <div class="col-md-4 d-flex flex-column align-items-center pt-4 p-4">
+        <img [src]="imageUrl" alt="Avatar" class="rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;">
+
+        @if(isCurrentUser) {
+          <button class="btn btn-outline-primary me-2" (click)="toggleAvatarSelection()">Select Avatar</button>
+          @if (showAvatars) {
+            <app-avatars (avatarSelected)="onAvatarSelected($event)"></app-avatars>
+          }
+        } @else {
+
+          @if(!isFollowing) {
+            <button class="btn btn-outline-primary me-2" (click)="followUser()">Follow</button>
+          } @else {
+            <button class="btn btn-outline-primary me-2" (click)="unfollowUser()">Unfollow</button>
+          }
+
+        }
+      </div>
+
+      <div class="col-md-1 d-flex align-items-center">
+        <hr class="bg-primary" style="width: 2px; height: 100%; margin: 0;">
+      </div>
+
+      @if (user) {
+        <div class="col-md-7 pt-4">
+          <div class="card-body">
+            <h5 class="card-title mt-2 gamer-font">{{ user?.username }}</h5>
+
+            @if(isCurrentUser) {
+              <div class="select-wrapper card-text modern-font font">
+                <select
+                  [(ngModel)]="user.currentTitle"
+                  (change)="changeTitle(user.currentTitle)">
+                  <option *ngFor="let title of userTitle | keyvalue" [value]="title.key">
+                    {{ title.value }}
+                  </option>
+                </select>
+              </div>
+            } @else {
+              <h5 class="card-title mt-2 modern-font">{{ user?.currentTitle }}</h5>
+            }
+
+            <br>
+            <p class="card-text">Username: {{ user?.username }}</p>
+            <p class="card-text">Email: {{ user?.email }}</p>
+            <p class="card-text">Karma: {{ user?.karma }}</p>
+            <p class="card-text">Followers: {{ user?.followers }}</p>
+            <p class="card-text">Following {{ user?.following?.length }} users</p>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-start mb-2">
+            <!-- Botón de eliminar solo visible si es admin -->
+            <button class="btn btn-outline-danger me-2" *ngIf="isAdmin && !isCurrentUser" (click)="banUser()">
+              Ban user
+            </button>
+            <button class="btn btn-outline-danger me-2" *ngIf="isCurrentUser" (click)="deactivateAccount()">
+              Deactivate account
+            </button>
+            <button class="btn btn-outline-primary me-2" *ngIf="isCurrentUser" [routerLink]="['/userProfile', user?.id,'update']">Update</button>
+          </div>
+        </div>
+      }
+    </div>
+
+      <div class="container-fluid  d-flex justify-content-center">
+        <app-logros-user [achievements]="user.achievements"></app-logros-user>
+      </div>
+
+
+  </div>
+</div>
+
+
+

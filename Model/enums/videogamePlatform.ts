@@ -1,0 +1,20 @@
+export enum VideoGamePlatform {
+  Android = 'Android',
+  Atari = 'Atari',
+  GameBoy = 'Game Boy',
+  iOS = 'iOS',
+  Mac = 'Mac',
+  Nintendo3DS = 'Nintendo 3DS',
+  NintendoSwitch = 'Nintendo Switch',
+  OculusQuest = 'Oculus Quest',
+  PC = 'PC (Microsoft Windows)',
+  PlayStation4 = 'PlayStation 4',
+  PlayStation5 = 'PlayStation 5',
+  PlayStationVita = 'PlayStation Vita',
+  SegaGenesis = 'Sega Genesis',
+  GoogleStadia = 'Google Stadia',
+  SteamVR = 'SteamVR',
+  XboxOne = 'Xbox One',
+  XboxSeriesX = 'Xbox Series X|S',
+  WiiU = 'Wii U'
+}
