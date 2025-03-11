@@ -1,0 +1,2 @@
+# GameScope
+Tesis carrera
